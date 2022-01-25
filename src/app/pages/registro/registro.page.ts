@@ -3,8 +3,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ErrorService } from 'src/app/services/error.service';
-
-import { ToastController } from '@ionic/angular';
 import { Usuario } from 'src/app/models/interfaces';
 import { UserService } from 'src/app/services/user.service';
 import { ToastrService } from 'ngx-toastr';

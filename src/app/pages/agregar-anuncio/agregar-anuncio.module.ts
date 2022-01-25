@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { AgregarAnuncioPageRoutingModule } from './agregar-anuncio-routing.module';
 
 import { AgregarAnuncioPage } from './agregar-anuncio.page';
-import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
@@ -15,7 +14,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
     FormsModule,
     IonicModule,
     AgregarAnuncioPageRoutingModule,
-    ReactiveFormsModule,ComponentsModule
+    ReactiveFormsModule
   ],
   declarations: [AgregarAnuncioPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

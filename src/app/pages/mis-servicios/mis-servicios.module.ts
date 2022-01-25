@@ -7,14 +7,13 @@ import { IonicModule } from '@ionic/angular';
 import { MisServiciosPageRoutingModule } from './mis-servicios-routing.module';
 
 import { MisServiciosPage } from './mis-servicios.page';
-import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MisServiciosPageRoutingModule,ComponentsModule
+    MisServiciosPageRoutingModule
   ],
   declarations: [MisServiciosPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

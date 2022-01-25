@@ -43,6 +43,13 @@ export class LoginPage implements OnInit {
   login() {
     const usaurio = this.loginForm.get('usuario')?.value;
     const pass = this.loginForm.get('password')?.value;
+    if(usaurio.length === 0) {
+      this.alertaError('Ingrese un usuario');
+    }else if(pass.length === 0){
+      this.alertaError('Ingrese una contraseña');
+    }
+    else{
+
     this.loading = true;
     this.afAuth.signInWithEmailAndPassword(usaurio, pass)
       .then((respuesta) => {
@@ -58,6 +65,7 @@ export class LoginPage implements OnInit {
         this.loading = false;
         this.alertaError(this._errorService.error(error.code));
       })
+    }
   }
   async setLocalStorage(user:any){
  await this._userService.getUsers().subscribe(res =>
@@ -90,5 +98,14 @@ export class LoginPage implements OnInit {
   }
   alertaError(mensaje){
     this.toastr.error(mensaje, 'Error!');
+  }
+  validarEmail(email) {
+    var EMAIL_REGEX =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (email.match(EMAIL_REGEX)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

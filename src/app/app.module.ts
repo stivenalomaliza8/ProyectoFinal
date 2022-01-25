@@ -17,7 +17,6 @@ import { AngularFireModule } from "@angular/fire";            //Modulo para inic
 import { AngularFireStorageModule } from "@angular/fire/storage"; //Storage
 import { environment } from 'src/environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ComponentsModule } from './components/components.module';
 import { CommonModule } from '@angular/common';  
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { MapaPage } from './pages/mapa/mapa.page';
@@ -34,7 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFireStorageModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    FormsModule, ReactiveFormsModule,ComponentsModule,CommonModule],
+    FormsModule, ReactiveFormsModule,CommonModule],
   providers: [SplashScreen,StatusBar,InAppBrowser,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent], 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

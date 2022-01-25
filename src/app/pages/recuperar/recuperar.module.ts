@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { RecuperarPageRoutingModule } from './recuperar-routing.module';
 
 import { RecuperarPage } from './recuperar.page';
-import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
@@ -15,7 +14,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
     FormsModule,
     IonicModule,
     RecuperarPageRoutingModule,
-    FormsModule, ReactiveFormsModule,ComponentsModule
+    FormsModule, ReactiveFormsModule
   ],
   declarations: [RecuperarPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
