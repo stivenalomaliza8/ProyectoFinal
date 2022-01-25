@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="backbtn" routerLink="/home" routerDirection="back">
+        <ion-icon name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title  style="color:#fff">{{id}}s</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+<div class=" animate__animated animate__backInUp">
+
+  <ion-row>
+    <ion-col size-lg="3" size-md="4" size-sm='6' sizeXl='3' size="12"  *ngFor="let anuncio of categorias">
+      <ion-card style="cursor: pointer" (click)="presentModal(anuncio)">
+        <img [src]="anuncio.imagen[0]" />
+        <ion-card-header>
+          <ion-card-subtitle>${{anuncio.precio}}</ion-card-subtitle>
+          <h5 style="color:#5995fd">{{anuncio.tipo}}</h5>
+          <ion-card-title>{{anuncio.titulo}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{anuncio.descripcion.substring(0,200)}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  </div>
+
+
+</ion-content>

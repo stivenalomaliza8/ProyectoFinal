@@ -1,0 +1,39 @@
+<ion-app>
+  <ion-menu contentId="main-content" type="overlay" [disabled]="!isMenuEnabled">
+    <ion-content>
+      
+      <div class="main-list">
+
+        <ion-list id="inbox-list">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" (click)="navigate('/home', 1)" detail="false" class="ion-text-center label"
+              [class.selected]="selectedIndex == 1">
+              <ion-label>Inicio</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" (click)="navigate('/perfil', 2)" detail="false" class="ion-text-center label"
+              [class.selected]="selectedIndex == 2">
+              <ion-label>Perfil</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" (click)="navigate('/mis-publicaciones', 3)" detail="false"
+              class="ion-text-center label" [class.selected]="selectedIndex == 3">
+              <ion-label>Mis publicaciones</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" (click)="navigate('/login', 4)" detail="false"
+              class="ion-text-center label" [class.selected]="selectedIndex == 3">
+              <ion-label style="color: red !important">Salir</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        
+      </div>
+     
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-app>

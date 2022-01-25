@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-icon name="list-outline" color="light"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="notification" fill="clear" shadow="round">
+
+        <label style="color: white !important;"> Bienvenido {{user.nombre}}</label>
+
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="todos animate__animated animate__backInUp" *ngIf="todo">
+    <ion-row>
+      <ion-col size-lg="3" size-md="4" size-sm='6' sizeXl='3' size="12" *ngFor="let anuncio of anuncios">
+        <ion-card style="cursor: pointer" (click)="presentModal(anuncio)">
+          <img [src]="anuncio.imagen[0]" />
+          <ion-card-header>
+            <ion-card-subtitle>${{anuncio.precio}}</ion-card-subtitle>
+            <h5 style="color:#5995fd">{{anuncio.tipo}}</h5>
+            <ion-card-title>{{anuncio.titulo}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{anuncio.descripcion.substring(0,200)}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </div>
+  <div class="categorias animate__animated animate__backInUp" *ngIf="!todo">
+    <div class="contenedor">
+      <div class="container" style="cursor: pointer" (click)="categorias('Casa')">
+
+        <img src="https://http2.mlstatic.com/D_NQ_NP_786122-MEC48320201975_112021-W.jpg" />
+        <div class="centrado">Casas</div>
+
+      </div>
+      <div class="container" style="cursor: pointer" (click)="categorias('Terreno')">
+
+        <img src="https://http2.mlstatic.com/D_NQ_NP_988907-MEC48056669029_102021-W.jpg" />
+        <div class="centrado">Terrenos</div>
+
+      </div>
+      <div class="container" style="cursor: pointer" (click)="categorias('Departamento')">
+
+        <img src="https://http2.mlstatic.com/D_NQ_NP_929361-MEC43064106633_082020-W.jpg" />
+        <div class="centrado">Departamentos</div>
+
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-segment value="categorias" mode='ios' (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="categorias">
+      <ion-label>Categorias</ion-label>
+      <ion-icon name="copy-outline"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="todo">
+      <ion-label>Todo</ion-label>
+      <ion-icon name="albums-outline"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+</ion-footer>

@@ -1,0 +1,8 @@
+{
+  "name": "Aver",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

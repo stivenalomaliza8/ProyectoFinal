@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="backbtn" (click)="cerrar()">
+        <ion-icon name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="color: white"> Agregar Publicación </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="body">
+    <div class="login-container">
+
+
+
+
+      <div  style="padding:20px;">
+        <form [formGroup]="anuncioForm" (ngSubmit)='agregar()'
+          style="background-color: white; padding: 20px; border-radius: 8px;">
+          <div class="input-field">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <input type="text" placeholder="Título" formControlName="titulo">
+          </div>
+        
+          <div class="input-field">
+            <i class="fa fa-money" aria-hidden="true"></i>
+            <input type="text" placeholder="Precio" formControlName="precio">
+          </div>
+          <div class="input-field">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <ion-datetime formControlName="anio" placeholder="Año" class="input" displayFormat="YYYY" min="1981"
+            max="2023"></ion-datetime>
+          </div>
+          <div class="input-field">
+            <i class="fa fa-window-restore" aria-hidden="true"></i>
+            <ion-select formControlName="tipo" class="input" style="padding-left:10px"  placeholder="Tipo">
+              <ion-select-option *ngFor="let tipo of tipos">{{tipo}}</ion-select-option>
+            </ion-select>
+          </div>
+         
+          <div class="input-field">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <ion-select formControlName="estado" class="input" placeholder="Estado">
+              <ion-select-option  *ngFor="let estado of estados">{{estado}}</ion-select-option>
+            </ion-select>
+          </div>
+          <div class="input-field">
+            <i class="fa fa-location-arrow" aria-hidden="true"></i>
+            <input type="text" placeholder="Ciudad" formControlName="ciudad" >
+          </div>
+          
+          <div class="input-field">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <input type="text" placeholder="Dirección" formControlName="direccion" class="input">
+          </div>
+         
+            <textarea  type="text" placeholder="Descripción"formControlName="descripcion" name="textarea" rows="10" cols="50">Write something here</textarea>
+            <div class="input-field" (click)="presentModal()">
+              <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+              <input [(ngModel)]="ubicacion" type="text" placeholder="Ubicación" formControlName="ubicacion" class="input">
+            </div>
+
+          <div class="imagenes">
+            <div class="file-select" id="src-file1" style=" cursor: pointer ">
+              <input type="file" name="src-file1"  accept="image/jpeg" aria-label="Archivo" (change)="chooseFile1($event)">
+            </div>
+            <div class="img" style="margin:15px" >
+              <ion-row>
+                <ion-col size="2" *ngFor="let img of anuncioService.img" style="text-align: center">
+                  <img [src]="img"   style="width: 100px;height:100px">
+                  <ion-button color="danger" (click)="eliminar(img)"  fill="clear" shape="round">
+                    <ion-icon name="trash-outline"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+           
+            </div>
+          </div>
+
+
+
+
+          <ion-button type="submit" color="success" expand="block" [disabled]='anuncioForm.invalid'>
+            Agregar
+          </ion-button>
+          <ion-button expand="block" color="danger" (click)="cerrar()">
+            Cancelar
+          </ion-button>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-icon name="list-outline" color="light"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      
+      <ion-button color="success" fill="solid" (click)="presentModal()">
+      Agregar publicación
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  >
+ 
+<div class="animate__animated animate__backInUp">
+ 
+  <h1 class="title">Mis Publicaciones</h1>
+
+    <ion-row>
+      <ion-col size-lg="3" size-md="4" size-sm='6' sizeXl='3' size="12" *ngFor="let anuncio of anuncios">
+        <ion-card style="cursor: pointer" (click)="presentActionSheet(anuncio)">
+          <img style="width: 100%; height: 200px" [src]="anuncio.imagen[0]" />
+          <ion-card-header>
+            <ion-card-subtitle>${{anuncio.precio}}</ion-card-subtitle>
+            <h5 style="color:#5995fd">{{anuncio.tipo}}</h5>
+            <ion-card-title>{{anuncio.titulo}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{anuncio.descripcion.substring(0,200)}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+</div>
+
+</ion-content>

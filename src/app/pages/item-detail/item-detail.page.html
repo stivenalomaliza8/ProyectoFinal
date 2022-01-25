@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="backbtn icon-only" (click)="cerrar()">
+        <ion-icon color="light" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="color:#fff">{{anuncio.titulo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slides pager="true" mode="ios" class="product-slider" *ngIf="anuncio.imagen.length!=1">
+    <ion-slide *ngFor="let imagen of anuncio.imagen">
+      <img [src]="imagen" />
+    </ion-slide>
+  </ion-slides>
+  <div style="text-align: center;">
+    <img [src]="anuncio.imagen" *ngIf="anuncio.imagen.length===1" />
+  </div>
+
+
+  <ion-item>
+    <ion-label>Año : {{anuncio.anio}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Estado : {{anuncio.estado}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Ciudad : {{anuncio.ciudad}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Dirección : {{anuncio.direccion}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Precio : ${{anuncio.precio}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Descripción: {{anuncio.descripcion}}</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <button class="btn solid" type="submit" (click)="presentModal()"> 
+      <i class="fas fa-map"></i>
+      Revisar ubicación</button>
+
+  </ion-item>
+  <ion-item>
+    <button style="background-color: green !important;"class="btn solid" type="submit" (click)="enviarMensaje()"> 
+    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    Enviar mensaje</button>
+    
+  </ion-item>
+
+</ion-content>

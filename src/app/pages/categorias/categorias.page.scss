@@ -1,0 +1,29 @@
+
+ion-row{
+    
+    ion-col {
+        
+        
+        img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            padding: auto;
+        }
+
+        p {
+            margin-top: 5px;
+            margin-bottom: 0;
+            color: #000;
+            padding-right: 10px;
+        }
+
+        h6 {
+            margin-top: 5px;
+            margin-bottom: 0;
+            color: #000;
+            padding-right: 10px;
+        }
+    }
+}

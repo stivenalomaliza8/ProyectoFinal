@@ -1,0 +1,23 @@
+
+img{
+    max-height: 250px;
+    border-radius: 10%;
+    padding-top: 10px;
+}
+.btn {
+    width: 100%;
+    background-color: #5995fd;
+    border: none;
+    outline: none;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  .btn:hover {
+    background-color: #4d84e2;
+  }
