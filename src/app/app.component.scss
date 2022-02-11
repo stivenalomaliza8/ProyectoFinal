@@ -1,11 +1,4 @@
 
-
-.main-list {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #5995fd;
     ion-list {
       width: 100%;
       --background: #5995fd;
@@ -40,8 +33,24 @@
       --ripple-color: transparent;
       --background: #5995fd;
     }
-  } 
+  
   *{
     background: #5995fd;
+   color: #fff;
+  }
+  *{
+    --background: #5995fd;
    
+  }
+  ion-item,ion-icon:hover{
+background: #5995fd !important;
+color: #fff;
+  }
+  ion-item,ion-icon,ion-label:hover{
+    --background: #5995fd !important;;
+    --color: #fff;
+  }
+  item-native::after{
+    background: #5995fd !important;;
+    color: #fff;
   }

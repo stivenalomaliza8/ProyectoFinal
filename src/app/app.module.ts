@@ -23,6 +23,7 @@ import { MapaPage } from './pages/mapa/mapa.page';
 import { MapaCoordenadasPage } from './pages/mapa-coordenadas/mapa-coordenadas.page';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [AppComponent,MapaPage,MapaCoordenadasPage],
   entryComponents: [],
@@ -33,7 +34,7 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFireStorageModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    FormsModule, ReactiveFormsModule,CommonModule],
+    FormsModule, ReactiveFormsModule,CommonModule, NgbModule],
   providers: [SplashScreen,StatusBar,InAppBrowser,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent], 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

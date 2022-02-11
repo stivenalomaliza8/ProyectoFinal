@@ -4,7 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { Anuncios, Usuario } from 'src/app/models/interfaces';
 import { AnunciosService } from 'src/app/services/anuncios.service';
 import { ItemDetailPage } from '../item-detail/item-detail.page';
-
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -17,14 +17,21 @@ export class HomePage implements OnInit {
   constructor(
     private anuncioService: AnunciosService,
     private modalCtrl: ModalController,
-    private router: Router
+    private router: Router,
+    private menu: MenuController
   ) {}
-
+  active = 1;
   ngOnInit() {
-    
+    this.active=1;
     this.obtenerTodo();
   }
-
+  openMenu() {
+    this.menu.enable(true, 'first');
+    this.menu.open();
+  }
+  openEnd() {
+    this.menu.open('end');
+  }
   obtenerTodo() {
     this.anuncioService.getAnuncios().subscribe((res) => {
       this.anuncios = res;
@@ -49,5 +56,8 @@ export class HomePage implements OnInit {
     } else {
       this.todo = false;
     }
+  }
+  nav(direccion){
+    this.router.navigate([`/${direccion}`])
   }
 }

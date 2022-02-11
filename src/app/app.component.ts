@@ -18,28 +18,17 @@ export class AppComponent {
   public selectedIndex = 0;
   user:Usuario=JSON.parse(localStorage.getItem('usuario') || '{}');
   constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    private util: UtilService,
+   
     private router: Router,
   ) {
-    this.initializeApp();
+   
   }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }
-
+  
   ngOnInit() {
     this.selectedIndex = 1;
     
-    this.util.getMenuState().subscribe(menuState => {
-      this.isMenuEnabled = menuState;
-    });
+   
   }
 
   navigate(path, selectedId) {

@@ -13,7 +13,7 @@ export class PerfilPage implements OnInit {
   nombre:string='';
   telefono:string='';
   direccion:string='';
-
+active=2;
   userNuevo:Usuario={
     nombre:"",
     telefono:"",

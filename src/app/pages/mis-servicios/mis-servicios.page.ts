@@ -11,7 +11,9 @@ import { EditarPage } from '../editar/editar.page';
   templateUrl: './mis-servicios.page.html',
   styleUrls: ['./mis-servicios.page.scss'],
 })
+
 export class MisServiciosPage implements OnInit {
+  active=1;
   user:Usuario=JSON.parse(localStorage.getItem('usuario') || '{}');
   constructor(
     private modalCtrl: ModalController,
@@ -22,6 +24,7 @@ export class MisServiciosPage implements OnInit {
     anuncios:Anuncios[]=[];
   ngOnInit() {
     this.getAll();
+    this.active=1;
   }
   async presentModal(){
     const modal = await this.modalCtrl.create({
@@ -32,7 +35,7 @@ export class MisServiciosPage implements OnInit {
   }
   getAll(){
     this.anuncioService.getAnuncios().subscribe((res) => {
-      this.anuncios=res.filter(element => element.uidPer ==this.user.uid);
+      this.anuncios=res.filter(element => element.uidPer === this.user.uid);
     });
   }
   async eliminar(id:string){

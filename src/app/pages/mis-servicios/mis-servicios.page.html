@@ -1,26 +1,42 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button>
-        <ion-icon name="list-outline" color="light"></ion-icon>
-      </ion-menu-button>
-    </ion-buttons>
 
-    <ion-buttons slot="end">
-      
-      <ion-button color="success" fill="solid" (click)="presentModal()">
-      Agregar publicación
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content  >
  
+<ion-content>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="cursor: pointer" [routerLink]="['/home']" routerLinkActive="router-link-active" >Bienes Raíces</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" [routerLink]="['/home']" routerLinkActive="router-link-active">
+            <a class="nav-link active" aria-current="page" style="cursor: pointer">Home</a>
+          </li>
+          <li class="nav-item" style="cursor: pointer" [routerLink]="['/perfil']" routerLinkActive="router-link-active">
+            <a class="nav-link">Mi Perfil</a>
+          </li>
+         
+          <li class="nav-item" style="cursor: pointer" [routerLink]="['/mis-publicaciones']" routerLinkActive="router-link-active">
+            <a class="nav-link">Mis Publicaciones</a>
+          </li>
+          <li class="nav-item" style="cursor: pointer" [routerLink]="['/login']" routerLinkActive="router-link-active">
+            <a class="nav-link" style="color: red;">Salir</a>
+          </li>
+        </ul>
+      
+      </div>
+    </div>
+  </nav>
+ 
+
 <div class="animate__animated animate__backInUp">
  
   <h1 class="title">Mis Publicaciones</h1>
-
+  <ion-button (click)="presentModal()" style="margin-left: 30px;">
+    Agregar Publicación
+  </ion-button>
     <ion-row>
       <ion-col size-lg="3" size-md="4" size-sm='6' sizeXl='3' size="12" *ngFor="let anuncio of anuncios">
         <ion-card style="cursor: pointer" (click)="presentActionSheet(anuncio)">
